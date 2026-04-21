@@ -184,17 +184,14 @@ const faqItems = [
   },
 ];
 
-function StripeIcon() {
+function CrownIcon() {
   return <span className="crown-pill-icon">♛</span>;
 }
 
 export default function Page() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const activeScreen = useMemo(
-    () => tourScreens[activeIndex],
-    [activeIndex]
-  );
+  const activeScreen = useMemo(() => tourScreens[activeIndex], [activeIndex]);
 
   const previousScreen = () => {
     setActiveIndex((prev) => (prev === 0 ? tourScreens.length - 1 : prev - 1));
@@ -527,7 +524,7 @@ export default function Page() {
 
         <div className="container pro-trial-banner">
           <div className="trial-pill">
-            <StripeIcon />
+            <CrownIcon />
             <span>7-day free trial</span>
           </div>
           <p>
@@ -559,7 +556,7 @@ export default function Page() {
           <article className="pricing-card pricing-card-pro">
             <div className="pricing-card-top">
               <span className="pricing-badge pricing-badge-pro">
-                <StripeIcon />
+                <CrownIcon />
                 <span>Pro</span>
               </span>
 

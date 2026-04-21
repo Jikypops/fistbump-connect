@@ -188,7 +188,7 @@ select {
 
 .hero-section {
   position: relative;
-  padding: 40px 0 32px;
+  padding: 34px 0 28px;
   overflow: hidden;
 }
 
@@ -231,9 +231,9 @@ select {
 
 .hero-card {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.72fr);
-  gap: 34px;
-  padding: 34px;
+  grid-template-columns: minmax(0, 1.14fr) minmax(320px, 0.72fr);
+  gap: 30px;
+  padding: 28px;
   border-radius: 38px;
 }
 
@@ -261,19 +261,19 @@ select {
 }
 
 .hero-title {
-  max-width: 8.1ch;
-  margin: 22px 0 0;
-  font-size: clamp(3.9rem, 6.2vw, 6.3rem);
-  line-height: 0.9;
-  letter-spacing: -0.075em;
+  max-width: 8.8ch;
+  margin: 20px 0 0;
+  font-size: clamp(3rem, 4.6vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
   font-weight: 800;
   text-wrap: balance;
 }
 
 .hero-body {
-  max-width: 640px;
-  margin: 22px 0 0;
-  font-size: 1.18rem;
+  max-width: 620px;
+  margin: 18px 0 0;
+  font-size: 1.06rem;
   line-height: 1.68;
   color: var(--muted);
   letter-spacing: -0.02em;
@@ -283,7 +283,7 @@ select {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 26px;
+  margin-top: 22px;
 }
 
 .hero-tags,
@@ -291,7 +291,7 @@ select {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
 .tag-pill {
@@ -304,7 +304,7 @@ select {
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: rgba(255, 255, 255, 0.72);
   color: #627493;
-  font-size: 0.96rem;
+  font-size: 0.93rem;
   letter-spacing: -0.02em;
 }
 
@@ -313,28 +313,28 @@ select {
   background: var(--surface-blue);
   border: 1px solid rgba(177, 208, 255, 0.28);
   border-radius: 28px;
-  padding: 18px;
+  padding: 16px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .preview-title {
-  margin: 16px 0 0;
-  font-size: 2rem;
-  line-height: 0.98;
-  letter-spacing: -0.04em;
+  margin: 14px 0 0;
+  font-size: 1.15rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .preview-body,
 .tour-preview p {
   color: var(--muted);
   line-height: 1.65;
-  margin: 14px 0 0;
-  font-size: 1rem;
+  margin: 12px 0 0;
+  font-size: 0.98rem;
 }
 
 .preview-frame {
-  margin-top: 18px;
-  padding: 16px;
+  margin-top: 16px;
+  padding: 14px;
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(148, 163, 184, 0.12);
@@ -352,56 +352,56 @@ select {
 }
 
 .hero-rail {
-  margin-top: 14px;
+  margin-top: 12px;
   border-radius: 999px;
-  padding: 16px 24px;
+  padding: 14px 22px;
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(148, 163, 184, 0.12);
   box-shadow: var(--shadow-md);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 26px;
+  gap: 24px;
   color: #4a6288;
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
 
 .section {
-  padding: 58px 0;
+  padding: 50px 0;
 }
 
 .section-soft {
-  padding-top: 48px;
+  padding-top: 42px;
 }
 
 .section-header {
-  max-width: 1000px;
-  margin: 0 auto 30px;
+  max-width: 900px;
+  margin: 0 auto 26px;
   text-align: center;
 }
 
 .section-title {
-  max-width: 11ch;
-  margin: 18px auto 0;
-  font-size: clamp(2.55rem, 4.4vw, 4.65rem);
-  line-height: 0.96;
-  letter-spacing: -0.06em;
+  max-width: 13ch;
+  margin: 16px auto 0;
+  font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
   font-weight: 800;
   text-wrap: balance;
 }
 
 .section-title-wide {
-  max-width: 13.5ch;
+  max-width: 15ch;
 }
 
 .section-subtitle {
-  max-width: 740px;
-  margin: 16px auto 0;
+  max-width: 720px;
+  margin: 14px auto 0;
   color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.72;
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
@@ -417,7 +417,7 @@ select {
   grid-template-columns: 50px minmax(0, 1fr);
   gap: 18px;
   align-items: center;
-  padding: 18px 20px;
+  padding: 16px 18px;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(255, 255, 255, 0.92);
@@ -434,7 +434,7 @@ select {
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(148, 163, 184, 0.12);
   color: #5d7194;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 700;
 }
 
@@ -446,7 +446,7 @@ select {
 .tour-note-card h4,
 .tour-preview h4 {
   margin: 0;
-  font-size: 1.18rem;
+  font-size: 1rem;
   line-height: 1.2;
   letter-spacing: -0.03em;
 }
@@ -462,10 +462,11 @@ select {
 .tour-copy p,
 .tour-note-card p,
 .tour-note-card li {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   color: var(--muted);
-  line-height: 1.72;
+  line-height: 1.7;
   letter-spacing: -0.02em;
+  font-size: 0.97rem;
 }
 
 .audience-grid,
@@ -486,15 +487,15 @@ select {
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(255, 255, 255, 0.92);
   border-radius: 24px;
-  padding: 22px;
+  padding: 20px;
   box-shadow: var(--shadow-md);
 }
 
 .principle-card {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.82fr);
-  gap: 22px;
-  padding: 28px;
+  grid-template-columns: minmax(0, 1.06fr) minmax(300px, 0.82fr);
+  gap: 20px;
+  padding: 24px;
   border-radius: 34px;
 }
 
@@ -505,11 +506,11 @@ select {
 }
 
 .card-title {
-  max-width: 8.6ch;
-  margin: 18px 0 0;
-  font-size: clamp(2rem, 3.7vw, 4.9rem);
-  line-height: 0.92;
-  letter-spacing: -0.07em;
+  max-width: 9.2ch;
+  margin: 16px 0 0;
+  font-size: clamp(1.9rem, 3.2vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
   font-weight: 800;
   text-wrap: balance;
 }
@@ -521,9 +522,9 @@ select {
 
 .tour-card {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.7fr);
-  gap: 28px;
-  padding: 28px;
+  grid-template-columns: minmax(0, 1.04fr) minmax(340px, 0.72fr);
+  gap: 24px;
+  padding: 24px;
   border-radius: 36px;
 }
 
@@ -551,35 +552,35 @@ select {
   border: 1px solid rgba(148, 163, 184, 0.12);
   color: #5d7194;
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 
 .tour-step-label {
   color: #5770a0;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .tour-title {
-  margin: 16px 0 0;
-  font-size: clamp(2rem, 3.3vw, 3.9rem);
-  line-height: 0.96;
-  letter-spacing: -0.055em;
+  margin: 14px 0 0;
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
   font-weight: 800;
   text-wrap: balance;
   max-width: 10ch;
 }
 
 .tour-subtitle {
-  margin-top: 14px;
+  margin-top: 12px;
   font-weight: 700;
   color: #38517a !important;
 }
 
 .tour-description {
-  max-width: 560px;
+  max-width: 540px;
 }
 
 .tour-note-card ul {
@@ -650,7 +651,7 @@ select {
 
 .tour-tab span {
   color: #687b98;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   margin-right: 7px;
 }
 
@@ -678,7 +679,12 @@ select {
 .pro-trial-banner p {
   margin: 14px 0 0;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.68;
+  font-size: 0.97rem;
+}
+
+.pro-trial-banner .trial-pill {
+  margin: 0 auto 10px;
 }
 
 .trial-pill,
@@ -692,7 +698,7 @@ select {
   border-radius: 999px;
   min-height: 34px;
   padding: 0 12px;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: -0.01em;
 }
@@ -700,7 +706,6 @@ select {
 .trial-pill {
   background: linear-gradient(135deg, #3b82f6, #5b95ff);
   color: white;
-  margin: 0 auto;
   box-shadow: 0 14px 24px rgba(59, 130, 246, 0.2);
 }
 
@@ -708,7 +713,7 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   line-height: 1;
 }
 
@@ -717,10 +722,11 @@ select {
 }
 
 .pricing-card ul {
-  margin: 16px 0 0;
+  margin: 14px 0 0;
   padding-left: 18px;
   color: var(--muted);
-  line-height: 1.9;
+  line-height: 1.85;
+  font-size: 0.97rem;
 }
 
 .pricing-badge {
@@ -759,6 +765,7 @@ select {
   color: var(--muted);
   margin-top: 18px;
   line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 .support-card-accent {
@@ -773,24 +780,24 @@ select {
 }
 
 .support-small {
-  font-size: 0.96rem;
+  font-size: 0.94rem;
 }
 
 .cta-section {
-  padding-top: 52px;
+  padding-top: 48px;
   padding-bottom: 24px;
 }
 
 .cta-card {
   border-radius: 36px;
-  padding: 26px;
+  padding: 22px;
   max-width: 760px;
   margin: 0 auto;
 }
 
 .cta-inner {
   min-height: 0;
-  padding: 4px 0;
+  padding: 6px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -830,14 +837,14 @@ select {
 }
 
 .cta-logo-badge-copy strong {
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   letter-spacing: -0.03em;
 }
 
 .cta-logo-badge-copy span {
   margin-top: 4px;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
 }
 
 .cta-card .eyebrow {
@@ -845,18 +852,18 @@ select {
 }
 
 .cta-title {
-  max-width: 12ch;
+  max-width: 13ch;
   margin: 14px auto 0;
-  font-size: clamp(2.2rem, 4.1vw, 4rem);
-  line-height: 0.98;
+  font-size: clamp(1.85rem, 3vw, 2.7rem);
+  line-height: 1.02;
   letter-spacing: -0.05em;
   font-weight: 800;
   text-wrap: balance;
 }
 
 .cta-body {
-  max-width: 480px;
-  margin: 14px auto 0;
+  max-width: 470px;
+  margin: 12px auto 0;
 }
 
 .cta-actions {
@@ -864,7 +871,7 @@ select {
   flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .footer {
@@ -899,7 +906,7 @@ select {
 
 .footer-brand span {
   color: var(--muted);
-  font-size: 0.96rem;
+  font-size: 0.95rem;
 }
 
 .footer-links {
@@ -952,19 +959,23 @@ select {
 
   .hero-title {
     max-width: 8.8ch;
-    font-size: clamp(3.1rem, 12vw, 4.8rem);
-    line-height: 0.94;
+    font-size: clamp(2.7rem, 10vw, 4rem);
+    line-height: 0.96;
   }
 
   .section-title {
-    max-width: 12.5ch;
-    font-size: clamp(2.15rem, 8vw, 3.45rem);
-    line-height: 0.98;
+    max-width: 13ch;
+    font-size: clamp(2rem, 7vw, 3rem);
+    line-height: 1.02;
   }
 
   .card-title {
-    font-size: clamp(2rem, 8vw, 3.2rem);
-    line-height: 0.97;
+    font-size: clamp(1.9rem, 7vw, 2.8rem);
+    line-height: 1.02;
+  }
+
+  .cta-title {
+    font-size: clamp(1.7rem, 6vw, 2.4rem);
   }
 
   .audience-grid,
@@ -995,7 +1006,7 @@ select {
 
   .hero-section,
   .section {
-    padding: 34px 0;
+    padding: 32px 0;
   }
 
   .hero-body,
@@ -1013,8 +1024,8 @@ select {
   .tour-copy p,
   .tour-note-card p,
   .tour-note-card li {
-    font-size: 0.98rem;
-    line-height: 1.66;
+    font-size: 0.95rem;
+    line-height: 1.65;
   }
 
   .hero-actions,
