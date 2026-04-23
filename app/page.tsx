@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type TourScreen = {
   id: string;
@@ -190,10 +190,7 @@ function CrownIcon() {
 
 export default function Page() {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const touchStartX = useRef<number | null>(null);
-  const touchStartY = useRef<number | null>(null);
-  const swipeLocked = useRef(false);
+  const mobileCarouselRef = useRef<HTMLDivElement | null>(null);
 
   const activeScreen = useMemo(() => tourScreens[activeIndex], [activeIndex]);
 
@@ -205,71 +202,57 @@ export default function Page() {
     setActiveIndex((prev) => (prev === tourScreens.length - 1 ? 0 : prev + 1));
   };
 
-  const minSwipeDistance = 65;
-  const verticalTolerance = 24;
+  const scrollToSlide = (index: number) => {
+    setActiveIndex(index);
 
-  const onTouchStart = (e: React.TouchEvent) => {
-    if (swipeLocked.current) return;
+    if (!mobileCarouselRef.current) return;
 
-    const touch = e.targetTouches[0];
-    touchStartX.current = touch.clientX;
-    touchStartY.current = touch.clientY;
+    const slides = mobileCarouselRef.current.querySelectorAll<HTMLElement>(
+      ".mobile-tour-slide"
+    );
+
+    const target = slides[index];
+    if (!target) return;
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
   };
 
-  const onTouchMove = (e: React.TouchEvent) => {
-    if (
-      touchStartX.current === null ||
-      touchStartY.current === null ||
-      swipeLocked.current
-    ) {
-      return;
-    }
+  useEffect(() => {
+    const el = mobileCarouselRef.current;
+    if (!el) return;
 
-    const touch = e.targetTouches[0];
-    const deltaX = touch.clientX - touchStartX.current;
-    const deltaY = touch.clientY - touchStartY.current;
+    const handleScroll = () => {
+      const slides = Array.from(
+        el.querySelectorAll<HTMLElement>(".mobile-tour-slide")
+      );
 
-    if (Math.abs(deltaX) > Math.abs(deltaY) + verticalTolerance) {
-      e.preventDefault();
-    }
-  };
+      if (!slides.length) return;
 
-  const onTouchEnd = (e: React.TouchEvent) => {
-    if (
-      touchStartX.current === null ||
-      touchStartY.current === null ||
-      swipeLocked.current
-    ) {
-      touchStartX.current = null;
-      touchStartY.current = null;
-      return;
-    }
+      const containerCenter = el.scrollLeft + el.clientWidth / 2;
 
-    const touch = e.changedTouches[0];
-    const deltaX = touch.clientX - touchStartX.current;
-    const deltaY = touch.clientY - touchStartY.current;
+      let closestIndex = 0;
+      let closestDistance = Number.POSITIVE_INFINITY;
 
-    const isHorizontalSwipe =
-      Math.abs(deltaX) > minSwipeDistance &&
-      Math.abs(deltaX) > Math.abs(deltaY) + verticalTolerance;
+      slides.forEach((slide, index) => {
+        const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+        const distance = Math.abs(containerCenter - slideCenter);
 
-    if (isHorizontalSwipe) {
-      swipeLocked.current = true;
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
 
-      if (deltaX < 0) {
-        nextScreen();
-      } else {
-        previousScreen();
-      }
+      setActiveIndex(closestIndex);
+    };
 
-      window.setTimeout(() => {
-        swipeLocked.current = false;
-      }, 280);
-    }
-
-    touchStartX.current = null;
-    touchStartY.current = null;
-  };
+    el.addEventListener("scroll", handleScroll, { passive: true });
+    return () => el.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <main className="site-shell">
@@ -510,7 +493,7 @@ export default function Page() {
                     key={screen.id}
                     type="button"
                     className={`tour-dot ${index === activeIndex ? "is-active" : ""}`}
-                    onClick={() => setActiveIndex(index)}
+                    onClick={() => scrollToSlide(index)}
                     aria-label={`Go to ${screen.name}`}
                   />
                 ))}
@@ -531,7 +514,7 @@ export default function Page() {
                 <button
                   key={screen.id}
                   type="button"
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => scrollToSlide(index)}
                   className={`tour-tab ${index === activeIndex ? "is-active" : ""}`}
                 >
                   <span>{screen.step}</span> {screen.name}
@@ -540,20 +523,12 @@ export default function Page() {
             </div>
           </div>
 
-          <div
-            className="tour-preview"
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
-          >
+          <div className="tour-preview">
             <span className="eyebrow">Live preview</span>
             <h4>{activeScreen.title}</h4>
             <p>{activeScreen.subtitle}</p>
 
-            <div
-              key={activeScreen.id}
-              className="preview-frame preview-frame-large preview-frame-animated"
-            >
+            <div className="preview-frame preview-frame-large preview-frame-desktop">
               <Image
                 src={activeScreen.image}
                 alt={`${activeScreen.name} screen preview`}
@@ -562,6 +537,22 @@ export default function Page() {
                 className="screen-image"
                 priority
               />
+            </div>
+
+            <div ref={mobileCarouselRef} className="mobile-tour-carousel">
+              {tourScreens.map((screen) => (
+                <div key={screen.id} className="mobile-tour-slide">
+                  <div className="preview-frame preview-frame-large preview-frame-animated">
+                    <Image
+                      src={screen.image}
+                      alt={`${screen.name} screen preview`}
+                      width={430}
+                      height={900}
+                      className="screen-image"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
