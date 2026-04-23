@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 type TourScreen = {
   id: string;
@@ -190,8 +190,10 @@ function CrownIcon() {
 
 export default function Page() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
-  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const swipeLocked = useRef(false);
 
   const activeScreen = useMemo(() => tourScreens[activeIndex], [activeIndex]);
 
@@ -203,27 +205,70 @@ export default function Page() {
     setActiveIndex((prev) => (prev === tourScreens.length - 1 ? 0 : prev + 1));
   };
 
-  const minSwipeDistance = 50;
+  const minSwipeDistance = 65;
+  const verticalTolerance = 24;
 
   const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEndX(null);
-    setTouchStartX(e.targetTouches[0].clientX);
+    if (swipeLocked.current) return;
+
+    const touch = e.targetTouches[0];
+    touchStartX.current = touch.clientX;
+    touchStartY.current = touch.clientY;
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEndX(e.targetTouches[0].clientX);
+    if (
+      touchStartX.current === null ||
+      touchStartY.current === null ||
+      swipeLocked.current
+    ) {
+      return;
+    }
+
+    const touch = e.targetTouches[0];
+    const deltaX = touch.clientX - touchStartX.current;
+    const deltaY = touch.clientY - touchStartY.current;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) + verticalTolerance) {
+      e.preventDefault();
+    }
   };
 
-  const onTouchEnd = () => {
-    if (touchStartX === null || touchEndX === null) return;
-
-    const distance = touchStartX - touchEndX;
-
-    if (distance > minSwipeDistance) {
-      nextScreen();
-    } else if (distance < -minSwipeDistance) {
-      previousScreen();
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (
+      touchStartX.current === null ||
+      touchStartY.current === null ||
+      swipeLocked.current
+    ) {
+      touchStartX.current = null;
+      touchStartY.current = null;
+      return;
     }
+
+    const touch = e.changedTouches[0];
+    const deltaX = touch.clientX - touchStartX.current;
+    const deltaY = touch.clientY - touchStartY.current;
+
+    const isHorizontalSwipe =
+      Math.abs(deltaX) > minSwipeDistance &&
+      Math.abs(deltaX) > Math.abs(deltaY) + verticalTolerance;
+
+    if (isHorizontalSwipe) {
+      swipeLocked.current = true;
+
+      if (deltaX < 0) {
+        nextScreen();
+      } else {
+        previousScreen();
+      }
+
+      window.setTimeout(() => {
+        swipeLocked.current = false;
+      }, 280);
+    }
+
+    touchStartX.current = null;
+    touchStartY.current = null;
   };
 
   return (
@@ -505,13 +550,17 @@ export default function Page() {
             <h4>{activeScreen.title}</h4>
             <p>{activeScreen.subtitle}</p>
 
-            <div className="preview-frame preview-frame-large">
+            <div
+              key={activeScreen.id}
+              className="preview-frame preview-frame-large preview-frame-animated"
+            >
               <Image
                 src={activeScreen.image}
                 alt={`${activeScreen.name} screen preview`}
                 width={430}
                 height={900}
                 className="screen-image"
+                priority
               />
             </div>
           </div>
