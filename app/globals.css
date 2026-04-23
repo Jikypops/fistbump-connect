@@ -1255,7 +1255,7 @@ select {
     padding: 16px;
   }
 }/* =========================
-   MOBILE LAYOUT REBUILD
+   MOBILE LAYOUT REBUILD + SWIPE TOUR
    Replace the old mobile block with this
 ========================= */
 
@@ -1350,7 +1350,6 @@ select {
     font-size: 0.95rem;
   }
 
-  /* make nav lighter and less bulky on phone */
   .nav {
     width: 100%;
     display: flex;
@@ -1395,14 +1394,20 @@ select {
     border-radius: 20px;
   }
 
-  .preview-frame,
-  .preview-frame-large {
+  .preview-frame {
     padding: 10px;
     border-radius: 20px;
   }
 
-  .screen-image {
+  .preview-frame-large {
+    padding: 8px;
     border-radius: 18px;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .screen-image {
+    border-radius: 16px;
   }
 
   .hero-title {
@@ -1441,7 +1446,6 @@ select {
     font-size: 0.83rem;
   }
 
-  /* simplify the hero rail */
   .hero-rail {
     margin-top: 10px;
     padding: 10px 14px;
@@ -1542,7 +1546,15 @@ select {
     gap: 10px;
   }
 
-  /* mobile screenshot section: screenshot first, less clutter */
+  /* optional 2-up for smaller cards only */
+  .audience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .principle-side {
+    grid-template-columns: 1fr;
+  }
+
   .tour-copy {
     order: 2;
     gap: 0;
@@ -1550,6 +1562,7 @@ select {
 
   .tour-preview {
     order: 1;
+    touch-action: pan-y;
   }
 
   .tour-step-line {
@@ -1593,8 +1606,7 @@ select {
   }
 
   .tour-arrow {
-    width: 36px;
-    height: 36px;
+    display: none;
   }
 
   .tour-dots {
@@ -1606,7 +1618,6 @@ select {
     height: 8px;
   }
 
-  /* make tabs horizontally scroll instead of stacking bulky */
   .tour-tabs {
     margin-top: 12px;
     display: flex;
@@ -1677,7 +1688,6 @@ select {
     word-break: break-word;
   }
 
-  /* fix legal links jamming together */
   .support-legal-links {
     display: flex;
     flex-direction: column;

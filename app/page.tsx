@@ -190,6 +190,8 @@ function CrownIcon() {
 
 export default function Page() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
   const activeScreen = useMemo(() => tourScreens[activeIndex], [activeIndex]);
 
@@ -201,11 +203,34 @@ export default function Page() {
     setActiveIndex((prev) => (prev === tourScreens.length - 1 ? 0 : prev + 1));
   };
 
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEndX(null);
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (touchStartX === null || touchEndX === null) return;
+
+    const distance = touchStartX - touchEndX;
+
+    if (distance > minSwipeDistance) {
+      nextScreen();
+    } else if (distance < -minSwipeDistance) {
+      previousScreen();
+    }
+  };
+
   return (
     <main className="site-shell">
       <header className="topbar">
         <div className="topbar-inner container">
-          <Link href="#" className="brand">
+          <Link href="/" className="brand">
             <span className="brand-mark">
               <Image
                 src="/icon.jpeg"
@@ -470,7 +495,12 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="tour-preview">
+          <div
+            className="tour-preview"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
             <span className="eyebrow">Live preview</span>
             <h4>{activeScreen.title}</h4>
             <p>{activeScreen.subtitle}</p>
@@ -625,7 +655,7 @@ export default function Page() {
               {supportEmail}
             </a>
 
-            <div className="legal-inline-links">
+            <div className="support-legal-links">
               <Link href="/privacy">Privacy Policy</Link>
               <Link href="/terms">Terms of Use</Link>
             </div>
