@@ -624,6 +624,12 @@ export default function Page() {
             <a href={`mailto:${supportEmail}`} className="support-email">
               {supportEmail}
             </a>
+
+            <div className="legal-inline-links">
+              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/terms">Terms of Use</Link>
+            </div>
+
             <p className="support-small">
               We welcome support questions and accessibility feedback.
             </p>
@@ -719,8 +725,8 @@ export default function Page() {
             <a href="#faq">FAQ</a>
             <a href="#support">Support</a>
             <a href="#cta">Download</a>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
           </div>
         </div>
       </footer>
