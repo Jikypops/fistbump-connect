@@ -1913,4 +1913,345 @@ select {
     min-height: 40px;
     font-size: 0.9rem;
   }
+}/* =========================
+   FINAL MOBILE MICRO-POLISH
+   Paste at the very bottom
+========================= */
+
+@media (max-width: 640px) {
+  .topbar-inner {
+    padding: 7px 0 6px;
+    gap: 6px;
+  }
+
+  .brand-mark,
+  .legal-brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+  }
+
+  .brand-copy strong {
+    font-size: 0.9rem;
+  }
+
+  .brand-copy span {
+    font-size: 0.76rem;
+  }
+
+  .button-nav {
+    min-height: 38px;
+    font-size: 0.92rem;
+    border-radius: 999px;
+  }
+
+  .nav {
+    gap: 12px;
+    padding-top: 0;
+    padding-bottom: 2px;
+  }
+
+  .nav a {
+    font-size: 0.88rem;
+  }
+
+  .hero-section,
+  .section,
+  .section-soft,
+  .cta-section {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .hero-card,
+  .principle-card,
+  .cta-card,
+  .legal-card,
+  .support-card,
+  .pricing-card,
+  .faq-card,
+  .info-card,
+  .feature-row-card,
+  .mini-card,
+  .tour-card {
+    border-radius: 16px;
+  }
+
+  .hero-card,
+  .principle-card,
+  .cta-card {
+    padding: 12px;
+  }
+
+  .hero-title {
+    font-size: 1.86rem;
+    line-height: 1.01;
+    margin-top: 10px;
+    max-width: 10ch;
+  }
+
+  .hero-body {
+    margin-top: 10px;
+    font-size: 0.91rem;
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+    margin-top: 14px;
+    gap: 8px;
+  }
+
+  .hero-tags {
+    margin-top: 10px;
+    gap: 6px;
+  }
+
+  .tag-pill {
+    min-height: 30px;
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+
+  .hero-rail {
+    padding: 9px 12px;
+    gap: 7px 12px;
+    border-radius: 18px;
+    font-size: 0.76rem;
+  }
+
+  .section-header {
+    margin-bottom: 14px;
+  }
+
+  .section-title,
+  .card-title {
+    font-size: 1.72rem;
+    line-height: 1.04;
+    max-width: 12ch;
+    margin-top: 10px;
+  }
+
+  .section-subtitle,
+  .feature-row-card p,
+  .info-card p,
+  .faq-card p,
+  .mini-card p,
+  .pricing-card p,
+  .principle-main p,
+  .support-card p,
+  .cta-body,
+  .tour-copy p,
+  .tour-note-card p,
+  .tour-note-card li {
+    font-size: 0.9rem;
+    line-height: 1.48;
+  }
+
+  .feature-row-card,
+  .info-card,
+  .faq-card,
+  .support-card,
+  .pricing-card,
+  .mini-card,
+  .tour-note-card {
+    padding: 12px;
+  }
+
+  .feature-row-card {
+    grid-template-columns: 30px 1fr;
+    gap: 10px;
+  }
+
+  .feature-row-number,
+  .tour-step {
+    width: 26px;
+    height: 26px;
+    font-size: 0.72rem;
+    border-radius: 8px;
+  }
+
+  .feature-row-card h3,
+  .info-card h3,
+  .faq-card h3,
+  .mini-card h3,
+  .pricing-card h3,
+  .tour-note-card h4,
+  .tour-preview h4 {
+    font-size: 0.93rem;
+    line-height: 1.2;
+  }
+
+  .audience-grid,
+  .faq-grid,
+  .support-grid,
+  .pricing-grid,
+  .principle-side {
+    gap: 8px;
+  }
+
+  .tour-card {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .tour-preview {
+    padding: 8px;
+    border-radius: 16px;
+  }
+
+  .preview-frame-large {
+    max-width: 260px;
+    padding: 5px;
+    border-radius: 14px;
+  }
+
+  .tour-title {
+    font-size: 1.4rem;
+    line-height: 1.05;
+    margin-top: 8px;
+  }
+
+  .tour-subtitle {
+    font-size: 0.9rem;
+    margin-top: 6px;
+  }
+
+  .tour-description {
+    margin-top: 5px;
+  }
+
+  .tour-note-card {
+    margin-top: 8px;
+  }
+
+  .tour-controls {
+    margin-top: 8px;
+  }
+
+  .tour-tabs {
+    margin-top: 8px;
+    gap: 6px;
+  }
+
+  .tour-tab {
+    min-height: 32px;
+    padding: 0 9px;
+    font-size: 0.78rem;
+  }
+
+  .tour-tab span {
+    font-size: 0.7rem;
+  }
+
+  .pro-trial-banner {
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .pro-trial-banner p {
+    font-size: 0.9rem;
+    line-height: 1.46;
+  }
+
+  .pricing-card ul {
+    margin-top: 8px;
+    padding-left: 17px;
+    line-height: 1.5;
+    font-size: 0.89rem;
+  }
+
+  .pricing-footnote {
+    margin-top: 10px;
+    font-size: 0.86rem;
+    line-height: 1.4;
+  }
+
+  .support-card {
+    padding: 12px;
+  }
+
+  .support-email {
+    font-size: 0.92rem;
+  }
+
+  .support-legal-links {
+    gap: 5px;
+    margin-top: 8px;
+  }
+
+  .support-legal-links a {
+    font-size: 0.89rem;
+  }
+
+  .support-small {
+    font-size: 0.84rem;
+  }
+
+  .cta-card {
+    padding: 12px;
+  }
+
+  .cta-title {
+    font-size: 1.58rem;
+    line-height: 1.05;
+    margin-top: 8px;
+  }
+
+  .cta-body {
+    font-size: 0.9rem;
+    line-height: 1.46;
+    margin-top: 7px;
+  }
+
+  .cta-actions {
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  .cta-tags {
+    margin-top: 10px;
+    gap: 6px;
+  }
+
+  .footer {
+    padding: 6px 0 18px;
+  }
+
+  .footer-inner {
+    gap: 12px;
+  }
+
+  .footer-links {
+    gap: 8px 10px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar-inner {
+    padding: 6px 0 6px;
+  }
+
+  .button-nav {
+    min-height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .hero-title {
+    font-size: 1.72rem;
+  }
+
+  .section-title,
+  .card-title,
+  .cta-title {
+    font-size: 1.54rem;
+  }
+
+  .tour-title {
+    font-size: 1.32rem;
+  }
+
+  .preview-frame-large {
+    max-width: 245px;
+  }
 }
